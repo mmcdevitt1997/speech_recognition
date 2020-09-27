@@ -3,4 +3,12 @@ import speech_recognition as sr
 r = sr.Recognizer()
 
 with sr.Microphone() as source: 
-     print('Enter Anything')
+     print('Say Anything')
+     audio = r.listen(source) 
+
+     try:
+          text = r.recognize_google(audio)
+          print('You said : {}'.format(text))
+     except:
+          print('sorry what did you say')
+
